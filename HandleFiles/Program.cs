@@ -11,10 +11,21 @@ namespace HandleFiles
     {
         static void Main(string[] args)
         {
-            string path = @"C:\Users\Jp\Desktop\Quiz_folder\Guessing_game_ soulution.txt";
+            string path = @"C:\Users\Jp\Desktop\tree.txt";
+            if (!File.Exists(path))
+            {
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine("test1");
+                    sw.WriteLine("test2");
+                    sw.WriteLine("test3");
+                    sw.WriteLine("test4");
+                    sw.WriteLine("test5");
+                }
+            }
             using (StreamReader sr = File.OpenText(path))
             {
-                string s = "";
+                string s = string.Empty;
                 while ((s = sr.ReadLine()) != null)
                 {
                     Console.WriteLine(s);
